@@ -43,4 +43,47 @@
   document.querySelectorAll('.flip').forEach(function(c){
     c.addEventListener('click',function(){ c.classList.toggle('on'); c.setAttribute('aria-pressed', c.classList.contains('on')); });
   });
+
+  // pipeline: light up each stage in turn
+  document.querySelectorAll('[data-pipe]').forEach(function(p){
+    var st=p.querySelectorAll('.st'), i=0; if(!st.length) return;
+    st[0].classList.add('on'); if(reduce) return;
+    setInterval(function(){ st[i].classList.remove('on'); i=(i+1)%st.length; st[i].classList.add('on'); },1100);
+  });
+
+  // agent console: types a sample run
+  document.querySelectorAll('[data-console]').forEach(function(box){
+    var L=[['> ','pull delivered vs committed from monday.com, all clients'],['ok','every client checked · late items listed with reasons'],
+           ['> ','how many veeva codes are left for systane?'],['ok','running low · new batch requested before it blocks a shoot'],
+           ['> ','draft the tire agent handover SOP from drive + slack'],['ok','draft ready · checking it against the source first'],
+           ['> ','n8n: new footage in drive → ping the editor on slack'],['ok','flow on · editor gets a Slack ping']];
+    if(reduce){ box.innerHTML=L.map(function(l){return '<p>'+(l[0]==='ok'?'<span class="ok">✓ </span>':'<span class="tag">› </span>')+l[1]+'</p>';}).join(''); return; }
+    var li=0, ci=0, cur;
+    function next(){
+      if(li>=L.length){ setTimeout(function(){ box.innerHTML=''; li=0; next(); },3500); return; }
+      var l=L[li]; cur=document.createElement('p');
+      cur.innerHTML=(l[0]==='ok'?'<span class="ok">✓ </span>':'<span class="tag">› </span>')+'<span class="t"></span><span class="cur"></span>';
+      [].forEach.call(box.querySelectorAll('.cur'),function(c){c.remove();});
+      box.appendChild(cur); var t=cur.querySelector('.t'); ci=0;
+      (function type(){ t.textContent=l[1].slice(0,++ci); if(ci<l[1].length) setTimeout(type,l[0]==='ok'?8:28); else { li++; setTimeout(next,l[0]==='ok'?900:350); } })();
+    }
+    var started=false, o=new IntersectionObserver(function(es){ if(es[0].isIntersecting&&!started){started=true;next();} }); o.observe(box);
+  });
+
+  // checklist with progress
+  document.querySelectorAll('[data-check]').forEach(function(wrap){
+    var boxes=wrap.querySelectorAll('input[type=checkbox]'), out=wrap.querySelector('[data-progress]'), bar=wrap.querySelector('[data-bar]');
+    function upd(){ var n=[].filter.call(boxes,function(b){return b.checked;}).length;
+      out.textContent = n===boxes.length ? '✓ Ready to ship' : n+' / '+boxes.length+' · not ready';
+      out.className = 'chip ' + (n===boxes.length?'ok':'wip'); bar.style.width=(n/boxes.length*100)+'%'; }
+    [].forEach.call(boxes,function(b){ b.addEventListener('change',upd); }); upd();
+  });
+
+  // tabs/toggles: [data-tabs] buttons switch panels
+  document.querySelectorAll('[data-tabs]').forEach(function(g){
+    var btns=g.querySelectorAll('[data-tab]'), pans=g.querySelectorAll('[data-pane]');
+    [].forEach.call(btns,function(b){ b.addEventListener('click',function(){
+      [].forEach.call(btns,function(x){x.setAttribute('aria-pressed', x===b);});
+      [].forEach.call(pans,function(p){p.hidden = p.getAttribute('data-pane')!==b.getAttribute('data-tab');}); }); });
+  });
 })();
