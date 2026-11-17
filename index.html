@@ -1,322 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Amirthashree Vijayakumar Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  /* Layout idea: a Behance-style case-study stack. Each industry opens on a full-bleed colour banner, then a strip of looping phone-frame ads. */
-  --paper:#F1F1EE; --ink:#121214; --muted:#5D5D63; --line:#D9D9D4; --card:#FFFFFF;
-  --eye:#1D4ED8; --auto:#E5482B; --retail:#F0B30A; --well:#1F7A55; --sys:#121214;
-  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
-  color-scheme: light;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img,video{max-width:100%;display:block}
-.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-
-/* top bar */
-.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.top b{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em}
-.top nav{display:flex;gap:18px;flex-wrap:wrap}
-.top nav a{text-decoration:none;color:var(--muted)}
-.top nav a:hover,.top nav a:focus-visible{color:var(--ink);text-decoration:underline}
-
-/* hero */
-.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
-.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.2vw,86px);line-height:.95;letter-spacing:-.035em;text-wrap:balance}
-.hero h1 span{color:var(--eye)}
-.hero p{color:var(--muted);max-width:44ch;margin-top:22px;font-size:18px}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.facts div{background:var(--card);padding:18px 18px 16px}
-.facts strong{display:block;font-family:var(--display);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.facts span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
-.index{display:flex;gap:10px;flex-wrap:wrap;padding:8px 0 56px}
-.index a{text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px}
-.index a i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:1px}
-.index a:hover,.index a:focus-visible{background:var(--ink);color:var(--paper)}
-
-/* case study */
-.case{margin-bottom:96px}
-.banner{color:#fff;border-radius:6px;padding:56px 48px 44px;position:relative;overflow:hidden}
-.banner .mono{opacity:.85}
-.banner h2{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,120px);line-height:.88;letter-spacing:-.045em;margin-top:18px;text-wrap:balance}
-.banner .clients{margin-top:26px;font-size:16px;max-width:60ch;opacity:.92}
-.banner .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-.banner .tags span{border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:5px 12px;font-size:13px}
-.b-eye{background:var(--eye)} .b-auto{background:var(--auto)} .b-retail{background:var(--retail);color:var(--ink)} .b-retail .tags span{border-color:rgba(18,18,20,.45)} .b-well{background:var(--well)} .b-sys{background:var(--sys)}
-
-.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;padding:40px 4px 36px;border-bottom:1px solid var(--line)}
-.meta h3{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.meta p,.meta li{font-size:16px}
-.meta ul{list-style:none;display:grid;gap:8px}
-.meta li{padding-left:16px;position:relative}
-.meta li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:2px;background:var(--ink)}
-
-.reel{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-top:36px}
-.reel.five{grid-template-columns:repeat(5,1fr)}
-.phone{position:relative}
-.phone .frame{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 0 0 6px #111,0 0 0 7px #2a2a2a,0 18px 40px -18px rgba(0,0,0,.45);cursor:pointer}
-.phone video{width:100%;height:100%;object-fit:cover}
-.phone .snd{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:999px;font:500 12px var(--body);padding:6px 10px;cursor:pointer}
-.phone .snd:focus-visible,.phone .frame:focus-visible{outline:3px solid var(--eye);outline-offset:3px}
-.phone figcaption{margin-top:16px;font-size:14px;line-height:1.35}
-.phone figcaption b{display:block;font-weight:600}
-.phone figcaption span{color:var(--muted)}
-
-.wide{margin-top:40px;display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:center}
-.wide .frame{aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000;position:relative;cursor:pointer}
-.wide video{width:100%;height:100%;object-fit:cover}
-.wide h4{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.02em}
-.wide p{color:var(--muted);margin-top:12px}
-
-/* system */
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:40px 0 8px}
-.flow div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px}
-.flow div b{display:block;font-family:var(--display);font-weight:800;font-size:20px;margin-top:6px}
-.flow div p{font-size:14px;color:var(--muted);margin-top:6px}
-.fixes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:28px}
-.fix{background:var(--card);border-radius:6px;padding:26px;border-top:5px solid var(--ink)}
-.fix h4{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-.01em;margin:8px 0 10px}
-.fix dl{display:grid;gap:10px;font-size:15px}
-.fix dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-.foot{border-top:1px solid var(--line);padding:56px 0 72px;display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:end}
-.foot h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,78px);line-height:.95;letter-spacing:-.035em}
-.foot p{line-height:1.8}
-.note{color:var(--muted);font-size:13px;margin-top:18px;max-width:70ch}
-
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr}
-  .reel,.reel.five{grid-template-columns:repeat(3,1fr)}
-  .meta,.fixes{grid-template-columns:1fr}
-  .flow{grid-template-columns:repeat(3,1fr)}
-  .wide{grid-template-columns:1fr}
-}
-@media (max-width:600px){
-  .wrap{padding:0 18px}
-  .banner{padding:36px 24px 30px}
-  .reel,.reel.five{grid-template-columns:repeat(2,1fr);gap:16px}
-  .flow{grid-template-columns:1fr 1fr}
-  .facts strong{font-size:28px}
-}
-</style>
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amirthashree Vijayakumar · Creative Operations</title>
+<meta name="description" content="Amirthashree Vijayakumar: creative and marketing operations for UGC ads. 40+ campaigns, 11 brands, based in Dubai.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Caveat:wght@600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css"></head>
 <body>
-<div class="wrap">
-
-<header class="top">
-  <b>Amirthashree Vijayakumar</b>
-  <nav aria-label="Sections">
-    <a href="#eye-care">Eye care</a><a href="#automotive">Automotive</a><a href="#retail">Retail &amp; food</a><a href="#wellness">Wellness</a><a href="#system">How I work</a><a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <p class="mono">Creative &amp; marketing operations · UGC · Dubai</p>
-    <h1>I run the engine behind short-form ads <span>people actually watch.</span></h1>
-    <p>At VideoForce, a UGC ad agency, I took campaigns for eleven brands from brief to live: casting angles, scripts, compliance, editor direction and delivery. I joined as an intern and went full-time within a year.</p>
-  </div>
-  <div class="facts" aria-label="Key figures">
-    <div><strong>40+</strong><span>campaigns delivered</span></div>
-    <div><strong>11+</strong><span>brands run at the same time</span></div>
-    <div><strong>20</strong><span>linked Monday.com boards I built</span></div>
-    <div><strong>8</strong><span>accounts handed over with full SOPs</span></div>
-  </div>
-</section>
-
-<nav class="index" aria-label="Case studies">
-  <a href="#eye-care"><i style="background:var(--eye)"></i>Regulated eye care</a>
-  <a href="#automotive"><i style="background:var(--auto)"></i>Automotive</a>
-  <a href="#retail"><i style="background:var(--retail)"></i>Retail &amp; food</a>
-  <a href="#wellness"><i style="background:var(--well)"></i>Wellness &amp; fitness</a>
-  <a href="#system"><i style="background:var(--sys)"></i>How I work</a>
-</nav>
-
-<!-- 01 EYE CARE -->
-<article class="case" id="eye-care">
-  <div class="banner b-eye">
-    <p class="mono">01 · Pharmaceutical · Alcon</p>
-    <h2>Regulated eye care that still sounds human</h2>
-    <p class="clients">Pataday, Systane, Opti-Free, Clear Care and Precision1 contact lenses: always-on UGC and eye-doctor ads, every one approved before it ran.</p>
-    <div class="tags"><span>UGC mashups</span><span>Eye-doctor ads</span><span>MAP approvals</span><span>Veeva codes</span><span>Creator consent</span></div>
-  </div>
-  <div class="meta">
-    <div><h3>The brief</h3><p>A steady monthly flow of ads across four eye-care lines, where every claim needs medical, legal and regulatory sign-off and every creator needs signed consent.</p></div>
-    <div><h3>What I did</h3><ul>
-      <li>Rewrote each creator's own story into a compliant script, so approved claims sat inside natural lines.</li>
-      <li>Made a standalone verbal disclosure a default ask for every Alcon creator, so it can be added or cut without a reshoot.</li>
-      <li>Built ad trackers linked to Veeva code registries and consent records for each brand.</li></ul></div>
-    <div><h3>What changed</h3><ul>
-      <li>One-off legal feedback became standing rules, so the same rejection didn't come back twice.</li>
-      <li>Status updates for Clear Care, Systane and Opti-Free went from hours of copying to seconds.</li>
-      <li>The tracker pattern built for one brand rolled out to the others.</li></ul></div>
-  </div>
-  <div class="reel five">
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/pataday-onedrop.jpg" src="v/pataday-onedrop.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Pataday · Mashup</b><span>Three creators, one approved body, hooks tested on top</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/systane-pocket.jpg" src="v/systane-pocket.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Systane · UGC</b><span>Everyday dry-eye moment, claim in the creator's voice</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/pataday-versus.jpg" src="v/pataday-versus.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Pataday · Comparison</b><span>Product never shown beside a "problem" line</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/precision1-walmart.jpg" src="v/precision1-walmart.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Precision1 · Walmart</b><span>Retail B-roll shot list matched to each script beat</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/pataday-comfort.jpg" src="v/pataday-comfort.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Pataday · Why Pataday</b><span>Amazon PDP and social versions</span></figcaption></figure>
-  </div>
-  <div class="wide">
-    <div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/clearcare-doctor.jpg" src="v/clearcare-doctor.mp4"></video><button class="snd" type="button" style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:999px;font:500 12px var(--body);padding:6px 10px;cursor:pointer">Sound off</button></div>
-    <div><p class="mono">Clear Care · 16:9 eye-doctor film</p><h4>An expert voice next to the everyday one</h4><p>Eye-care professionals explain the why, everyday users share the relief. Pairing the two gave each ad human warmth and professional credibility, all inside a MAP-approved script.</p></div>
-  </div>
-</article>
-
-<!-- 02 AUTOMOTIVE -->
-<article class="case" id="automotive">
-  <div class="banner b-auto">
-    <p class="mono">02 · Automotive · Cox Automotive &amp; Tire Agent</p>
-    <h2>Casting the doubt instead of arguing with it</h2>
-    <p class="clients">Autotrader and Kelley Blue Book, plus Tire Agent's always-on ad sets, including Spanish-language mashups.</p>
-    <div class="tags"><span>Casting angles</span><span>Hook testing</span><span>Mashup ad sets</span><span>Weekly client syncs</span></div>
-  </div>
-  <div class="meta">
-    <div><h3>The brief</h3><p>Promote buying a car fully online, a decision people hesitate over, and keep a tyre brand fed with fresh ads every month from a limited pool of footage.</p></div>
-    <div><h3>What I did</h3><ul>
-      <li>Wrote 10 buyer personas and 11 creative angles beyond the brief, like the "I closed the tab three times" confession.</li>
-      <li>Developed the Autotrader brief through six rounds of client feedback.</li>
-      <li>Built mashup sets with a fixed body and CTA, so swapping the hook made every set a clean test.</li></ul></div>
-    <div><h3>What changed</h3><ul>
-      <li>A persona library the team could reuse for later briefs.</li>
-      <li>Steady monthly delivery from a limited footage pool.</li>
-      <li>Brand editing guidelines kept different editors cutting the same way.</li></ul></div>
-  </div>
-  <div class="reel">
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/autotrader-really.jpg" src="v/autotrader-really.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Autotrader · Buy online</b><span>15-second delivery cut</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/cox-sellmycar.jpg" src="v/cox-sellmycar.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Kelley Blue Book · Sell my car</b><span>"How much is my car actually worth?"</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/tireagent-womans.jpg" src="v/tireagent-womans.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Tire Agent · Hook test</b><span>Same body, three different openings</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/tireagent-paylater.jpg" src="v/tireagent-paylater.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Tire Agent · Pay later</b><span>Mashup from several real customers</span></figcaption></figure>
-  </div>
-</article>
-
-<!-- 03 RETAIL -->
-<article class="case" id="retail">
-  <div class="banner b-retail">
-    <p class="mono">03 · Retail, food &amp; services</p>
-    <h2>Seasonal moments, shipped on the date that matters</h2>
-    <p class="clients">Build-A-Bear, Vanity Fair, Capriotti's and El Car Wash: gifting, holidays, menu launches and before-and-after transformations.</p>
-    <div class="tags"><span>Seasonal campaigns</span><span>PDP versions</span><span>Creator notes</span><span>In-store shoots</span></div>
-  </div>
-  <div class="meta">
-    <div><h3>The brief</h3><p>High monthly volume (up to 18 Build-A-Bear ads a month) with every holiday and launch landing on time and on brand.</p></div>
-    <div><h3>What I did</h3><ul>
-      <li>When licensed toys showed up in Build-A-Bear shots, I traced it to a missing "what to avoid" list, owned the miss, and proposed a banned-brand list for every retail shoot.</li>
-      <li>Reworked a Halloween angle into "phone time vs Halloween prep", with the phone out of frame by the end.</li>
-      <li>Sent creators warm, specific notes listing only the two to four missing pieces.</li></ul></div>
-    <div><h3>What changed</h3><ul>
-      <li>A repeatable guard against off-brand products for any retail shoot.</li>
-      <li>Quick fixes with creator goodwill intact.</li>
-      <li>Client reviews got easier with one-line angles marked as internally approved.</li></ul></div>
-  </div>
-  <div class="reel">
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/bab-goldenegg.jpg" src="v/bab-goldenegg.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Build-A-Bear · Golden Egg</b><span>Easter, three hooks</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/capriottis-blt.jpg" src="v/capriottis-blt.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Capriotti's · Cheesesteak BLT</b><span>Menu launch</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/elcarwash-beforeafter.jpg" src="v/elcarwash-beforeafter.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>El Car Wash · My filthy car</b><span>Before-and-after story</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/vf-everyday.jpg" src="v/vf-everyday.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Vanity Fair · Everyday moments</b><span>Mashup ad set</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/bab-adoption.jpg" src="v/bab-adoption.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Build-A-Bear · Adoption story</b><span>Gifting</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/capriottis-duos.jpg" src="v/capriottis-duos.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Capriotti's · $9.99 Duos</b><span>Value offer</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/elcarwash-therapy.jpg" src="v/elcarwash-therapy.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>El Car Wash · Car wash therapy</b><span>Membership</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/vf-pdp.jpg" src="v/vf-pdp.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Vanity Fair · PDP</b><span>Product-page version</span></figcaption></figure>
-  </div>
-</article>
-
-<!-- 04 WELLNESS -->
-<article class="case" id="wellness">
-  <div class="banner b-well">
-    <p class="mono">04 · Wellness &amp; fitness</p>
-    <h2>Claims kept careful, energy kept high</h2>
-    <p class="clients">Botanic Choice supplements and beauty, In-Shape and Fitness SF gyms.</p>
-    <div class="tags"><span>Supplement claims</span><span>Don'ts lists</span><span>Content rescues</span><span>Creator sourcing</span></div>
-  </div>
-  <div class="meta">
-    <div><h3>The brief</h3><p>Monthly supplement and gym ads that feel motivating while staying inside what each product can claim.</p></div>
-    <div><h3>What I did</h3><ul>
-      <li>Added a Don'ts list to the Botanic Choice joint-comfort brief after content said "it takes away the pain".</li>
-      <li>When a creator filmed strength training for a recovery concept, asked only for recovery-amenity clips paired with existing audio.</li>
-      <li>Flagged when the creator pool showed the same faces, as a cue to source new ones.</li></ul></div>
-    <div><h3>What changed</h3><ul>
-      <li>Briefs that close the gaps recent content exposed.</li>
-      <li>Footage saved without a new voiceover or full reshoot.</li>
-      <li>Fresher variety in the next round of creators.</li></ul></div>
-  </div>
-  <div class="reel">
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/botanic-spa.jpg" src="v/botanic-spa.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Botanic Choice · Spa holiday</b><span>Seasonal sale</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/inshape-goals.jpg" src="v/inshape-goals.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>In-Shape · 2026 goals</b><span>New-year campaign</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/botanic-hairoil.jpg" src="v/botanic-hairoil.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Botanic Choice · Hair oil</b><span>Product demo</span></figcaption></figure>
-    <figure class="phone"><div class="frame" tabindex="0"><video muted loop playsinline preload="none" poster="v/fitnesssf-summer.jpg" src="v/fitnesssf-summer.mp4"></video><button class="snd" type="button">Sound off</button></div><figcaption><b>Fitness SF · Summer body</b><span>Ad set script</span></figcaption></figure>
-  </div>
-</article>
-
-<!-- 05 SYSTEM -->
-<article class="case" id="system">
-  <div class="banner b-sys">
-    <p class="mono">05 · Behind the work</p>
-    <h2>How a team ships 40+ campaigns without chaos</h2>
-    <p class="clients">My pattern: find where information gets lost between people or tools, then set one place and one rule for it.</p>
-  </div>
-  <div class="flow" aria-label="Campaign process">
-    <div><span class="mono">01</span><b>Plan</b><p>Monthly targets per client, tracker and calendar set up</p></div>
-    <div><span class="mono">02</span><b>Cast</b><p>Personas and life situations, not just demographics</p></div>
-    <div><span class="mono">03</span><b>Brief</b><p>Talking lines split from silent B-roll, safe-zone guides</p></div>
-    <div><span class="mono">04</span><b>Approve</b><p>Claims, codes and consent cleared before filming</p></div>
-    <div><span class="mono">05</span><b>Edit</b><p>Brand rules turned into editing guidelines</p></div>
-    <div><span class="mono">06</span><b>Deliver</b><p>Delivered vs committed, every client, every month</p></div>
-  </div>
-  <div class="fixes">
-    <div class="fix"><span class="mono">Visibility</span><h4>One master tracker for every client</h4><dl><dt>Problem</dt><dd>Monday's plan couldn't show a yearly count across twelve monthly boards.</dd><dt>Fix</dt><dd>A master ad log fed by automations from each monthly board, with a view per client.</dd><dt>Result</dt><dd>Annual counts in one place, for example 142 Tire Agent ads across 31 ad sets.</dd></dl></div>
-    <div class="fix"><span class="mono">Team</span><h4>Protected time to fix the system</h4><dl><dt>Problem</dt><dd>Constant pings left no time for operational clean-up.</dd><dt>Fix</dt><dd>Set Fridays as the creative team's admin day and started building automations.</dd><dt>Result</dt><dd>Time to fix systems instead of firefighting.</dd></dl></div>
-    <div class="fix"><span class="mono">Handover</span><h4>Nothing depends on one person</h4><dl><dt>Problem</dt><dd>Account know-how lived in my head and my messages.</dd><dt>Fix</dt><dd>SOPs for sourcing, creative and editing teams on 8 accounts, plus three recorded walkthroughs.</dd><dt>Result</dt><dd>Handed over to two colleagues, so no account depends on one person.</dd></dl></div>
-  </div>
-</article>
-
-<footer class="foot" id="contact">
-  <div>
-    <h2>Let's build yours.</h2>
-    <p class="note">Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery.</p>
-  </div>
-  <p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br>Based in the UAE</p>
-</footer>
-
-</div>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var vids = Array.prototype.slice.call(document.querySelectorAll('video'));
-  function setLabel(v){ var b=v.parentNode.querySelector('.snd'); if(b) b.textContent = v.muted ? 'Sound off' : 'Sound on'; }
-  if('IntersectionObserver' in window && !reduce){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ var v=e.target;
-        if(e.isIntersecting){ if(v.preload==='none'){v.preload='auto';} var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
-        else { v.pause(); }
-      });
-    },{threshold:0.35});
-    vids.forEach(function(v){ io.observe(v); });
-  }
-  function toggle(v){
-    vids.forEach(function(o){ if(o!==v){ o.muted=true; setLabel(o);} });
-    v.muted = !v.muted; setLabel(v);
-    var p=v.play(); if(p&&p.catch)p.catch(function(){});
-  }
-  document.querySelectorAll('.frame').forEach(function(f){
-    var v=f.querySelector('video');
-    f.addEventListener('click',function(){ toggle(v); });
-    f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(v);} });
-  });
-})();
-</script>
-</body>
-</html>
+<header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>A</i>Amirthashree</a><nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="work.html">Work</a><a href="concepts.html">UAE concepts</a><a href="playbook.html">Playbook</a><a href="about.html">About</a></nav></div></header>
+<main>
+<section style="padding:70px 0 40px;position:relative"><div class="wrap" style="position:relative">
+ <span class="sticker">Creative ops · UGC · Dubai</span>
+ <h1 class="big" style="margin-top:26px;max-width:12ch">I make ads people <span data-rotate="stop scrolling for|watch twice|actually buy from|send to a friend" style="color:var(--tomato);transition:opacity .2s;display:inline-block">stop scrolling for</span>.</h1>
+ <p class="lede">And I build the system that gets forty of them out the door, on time, for eleven brands at once.</p>
+ <p style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="work.html">See the work →</a><a class="btn ghost" href="about.html">Who's this?</a></p>
+ <div class="badge" style="right:28px;top:10px" aria-hidden="true">Available now · in Dubai ·</div>
+</div></section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>40+ campaigns</span><span>11 brands at once</span><span>Intern to full-time in a year</span><span>Pharma-compliant</span><span>20 linked boards</span><span>Every campaign on schedule</span><span>40+ campaigns</span><span>11 brands at once</span><span>Intern to full-time in a year</span><span>Pharma-compliant</span><span>20 linked boards</span><span>Every campaign on schedule</span></div></div>
+<div class="cliprail" aria-label="A reel of ads"><div class="track"><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/pataday-onedrop.jpg" src="v/pataday-onedrop.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/capriottis-blt.jpg" src="v/capriottis-blt.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/tireagent-womans.jpg" src="v/tireagent-womans.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/bab-goldenegg.jpg" src="v/bab-goldenegg.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/cox-sellmycar.jpg" src="v/cox-sellmycar.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/systane-pocket.jpg" src="v/systane-pocket.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/elcarwash-beforeafter.jpg" src="v/elcarwash-beforeafter.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/vf-everyday.jpg" src="v/vf-everyday.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/botanic-spa.jpg" src="v/botanic-spa.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/inshape-goals.jpg" src="v/inshape-goals.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/autotrader-really.jpg" src="v/autotrader-really.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/bab-adoption.jpg" src="v/bab-adoption.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/pataday-onedrop.jpg" src="v/pataday-onedrop.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/capriottis-blt.jpg" src="v/capriottis-blt.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/tireagent-womans.jpg" src="v/tireagent-womans.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/bab-goldenegg.jpg" src="v/bab-goldenegg.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/cox-sellmycar.jpg" src="v/cox-sellmycar.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/systane-pocket.jpg" src="v/systane-pocket.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/elcarwash-beforeafter.jpg" src="v/elcarwash-beforeafter.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/vf-everyday.jpg" src="v/vf-everyday.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/botanic-spa.jpg" src="v/botanic-spa.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/inshape-goals.jpg" src="v/inshape-goals.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/autotrader-really.jpg" src="v/autotrader-really.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure><figure class="ph "><div class="frame"><video muted loop playsinline preload="none" poster="v/bab-adoption.jpg" src="v/bab-adoption.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b></b><span></span></figcaption></figure></div></div>
+<section style="padding-top:20px"><div class="wrap">
+ <div class="stats rv">
+  <div><strong data-count="40" data-suffix="+">40+</strong><span>campaigns delivered</span></div>
+  <div><strong data-count="11" data-suffix="+">11+</strong><span>brands at the same time</span></div>
+  <div><strong data-count="142">142</strong><span>Tire Agent ads tracked in one log</span></div>
+  <div><strong data-count="8">8</strong><span>accounts handed over with SOPs</span></div>
+ </div></div></section>
+<section><div class="wrap">
+ <div class="kicker"><span class="dot"></span><span class="mono">Pick a rabbit hole</span><span class="hand">← start anywhere</span></div>
+ <div class="grid g3">
+  <a class="tile rv" href="work-alcon.html" style="background:var(--cobalt);color:#fff"><span class="mono">Pharma</span><h3>Compliant ads that sound like people</h3><p>Alcon eye care</p><span class="arrow">→</span></a>
+  <a class="tile rv" href="work-autotrader.html" style="background:var(--tomato);color:#fff"><span class="mono">Automotive</span><h3>Cast the doubt</h3><p>Autotrader &amp; Kelley Blue Book</p><span class="arrow">→</span></a>
+  <a class="tile rv" href="work-buildabear.html" style="background:var(--sun)"><span class="mono">Retail</span><h3>The fix that stops a mistake twice</h3><p>Build-A-Bear</p><span class="arrow">→</span></a>
+  <a class="tile rv" href="work-tireagent.html" style="background:var(--mint)"><span class="mono">E-commerce</span><h3>One shoot, a month of ads</h3><p>Tire Agent</p><span class="arrow">→</span></a>
+  <a class="tile rv" href="concepts.html" style="background:var(--pink)"><span class="mono">Spec work</span><h3>Three ideas for UAE brands</h3><p>Optics, food delivery, Ramadan rides</p><span class="arrow">→</span></a>
+  <a class="tile rv" href="playbook.html" style="background:var(--card)"><span class="mono">Process</span><h3>The playbook behind it</h3><p>10 stages, 11 hard-won lessons</p><span class="arrow">→</span></a>
+ </div></div></section>
+<section style="padding-top:0"><div class="wrap"><p class="quote rv">“Creative work rarely falls apart because people run out of ideas. It falls apart when nobody can see what’s going on.”</p></div></section></main>
+<footer class="foot"><div class="wrap"><div class="row">
+<h2>Got a team<br>that needs this?</h2>
+<p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf">Download my resume (PDF)</a></p>
+</div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery. UAE concepts are unsolicited spec work and are not affiliated with or commissioned by those brands.</small></div></footer>
+<script src="js/site.js"></script></body></html>
