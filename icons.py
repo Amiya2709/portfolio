@@ -7,9 +7,9 @@ def _svg(ref, color=None):
     body=ic['body']
     if color: body=body.replace('currentColor',color)
     fill=f' fill="{color}"' if color and s=='simple-icons' else ''
-    return f'<svg viewBox="{l} {t} {w} {h}" aria-hidden="true"{fill}>{body}</svg>'
+    return f'<svg width="20" height="20" viewBox="{l} {t} {w} {h}" aria-hidden="true"{fill}>{body}</svg>'
 def _mono(txt,bg,fg='#fff'):
-    return f'<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="{bg}"/><text x="20" y="25.5" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="{15 if len(txt)<3 else 12}" fill="{fg}">{txt}</text></svg>'
+    return f'<svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="{bg}"/><text x="20" y="25.5" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="{15 if len(txt)<3 else 12}" fill="{fg}">{txt}</text></svg>'
 T={
  'monday':('Monday.com','logos:monday-icon'),'airtable':('Airtable','logos:airtable'),'asana':('Asana','logos:asana-icon'),
  'notion':('Notion','logos:notion-icon'),'slack':('Slack','logos:slack-icon'),'n8n':('n8n','logos:n8n-icon'),
