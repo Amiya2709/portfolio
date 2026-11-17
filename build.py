@@ -10,13 +10,16 @@ def ico(k): return f'<span class="ico" title="{E(_iname(k))}">{_isvg(k)}</span>'
 def stack(keys): return '<div class="stack">' + ''.join(ico(k) for k in keys) + '</div>'
 def tool(k): return f'<div class="tool">{ico(k)}<span>{E(_iname(k))}</span></div>'
 
+import hashlib
+def _v(p): return hashlib.md5(open(OUT + p, 'rb').read()).hexdigest()[:8]
+
 def page(fn, title, body, extra_css=''):
     nav = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == fn or (fn.startswith("work-") and h == "work.html") else ""}>{t}</a>' for h, t in NAV)
     doc = f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title>
 <meta name="description" content="Amirthashree Vijayakumar: creative and marketing operations for UGC ads. 40+ campaigns, 11 brands, based in Dubai.">
-{FONTS}<link rel="stylesheet" href="css/site.css">{f"<style>{extra_css}</style>" if extra_css else ""}</head>
+{FONTS}<link rel="stylesheet" href="css/site.css?v={_v("css/site.css")}">{f"<style>{extra_css}</style>" if extra_css else ""}</head>
 <body>
 <header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>AV</i>Amirthashree<em>Open to work · Dubai</em></a><nav aria-label="Main">{nav}</nav></div></header>
 <main>{body}</main>
@@ -24,7 +27,7 @@ def page(fn, title, body, extra_css=''):
 <h2>Got a team<br>that needs this?</h2>
 <p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf">Download my resume (PDF)</a></p>
 </div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery. UAE concepts are unsolicited spec work and are not affiliated with or commissioned by those brands.</small></div></footer>
-<script src="js/site.js"></script></body></html>'''
+<script src="js/site.js?v={_v("js/site.js")}"></script></body></html>'''
     open(OUT + fn, 'w').write(doc)
 
 def ph(clip, title, sub='', cls=''):
@@ -101,7 +104,7 @@ wall = ''.join(f'<span>{ico(k)}{E(_iname(k))}</span>' for k in WALL)
 home = f'''
 <section style="padding:70px 0 40px;position:relative"><div class="wrap" style="position:relative">
  <span class="sticker">Creative ops · UGC · Automation</span>
- <h1 class="big" style="margin-top:26px;max-width:13ch">I make ads people <span data-rotate="stop scrolling for|watch twice|actually buy from|send to a friend" style="color:var(--tomato);transition:opacity .2s;display:inline-block">stop scrolling for</span>.</h1>
+ <h1 class="big" style="margin-top:26px;max-width:13ch">I make ads people <span data-rotate="stop scrolling for|watch twice|actually buy from|send to a friend" style="color:var(--tomato);transition:opacity .2s;white-space:nowrap">stop scrolling for</span><span style="white-space:nowrap">.</span></h1>
  <p class="lede">And I run the machine behind them: briefs, creators, approvals, editors, and the boards and AI agents that keep 40+ campaigns on time.</p>
  <p style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="work.html">See the work →</a><a class="btn ghost" href="ugc.html">Steal my playbook</a></p>
  <div class="badge" style="right:28px;top:10px" aria-hidden="true">Available now · in Dubai ·</div>

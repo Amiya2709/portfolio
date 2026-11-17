@@ -7,8 +7,8 @@
 @font-face{font-family:"Martian Mono";src:url(../fonts/martian-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Martian Mono";src:url(../fonts/martian-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 :root{
-  --bg:#F1EEE6; --ink:#121212; --soft:#55524B; --card:#FFFFFF; --line:#121212;
-  --tomato:#FF4F2E; --cobalt:#2B4BFF; --sun:#FFC93C; --pink:#FF9BD2; --mint:#8EE3C8; --lime:#D6F54A; --lilac:#C9BFFF;
+  --bg:#F5F3EE; --ink:#141414; --soft:#5E5B55; --card:#FFFFFF; --line:#121212;
+  --tomato:#E5482B; --cobalt:#2F45D8; --sun:#F2E3B8; --pink:#F2D9E2; --mint:#D3E8DE; --lime:#E3EE9E; --lilac:#DDD8F5; --hair:rgba(17,17,17,.14);
   --display:"Archivo","Arial Black",Arial,sans-serif;
   --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
   --mono:"Martian Mono",ui-monospace,Menlo,monospace;
@@ -17,14 +17,14 @@
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth}
-body{background:var(--bg) radial-gradient(rgba(18,18,18,.16) 1px,transparent 1.3px) 0 0/24px 24px;color:var(--ink);font-family:var(--body);font-size:17.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 img,video{max-width:100%;display:block}
 .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
 .mono{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
 .hand{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--tomato)}
 .hand::before{content:"↳ "}
-h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:118%;letter-spacing:-.025em;line-height:.98;text-wrap:balance}
+h1,h2,h3{font-family:var(--display);font-weight:700;font-stretch:108%;letter-spacing:-.022em;line-height:1.02;text-wrap:balance}
 :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
 
 /* nav */
@@ -89,8 +89,8 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:118%;letter-spa
 section{padding:84px 0}
 .kicker{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
 .kicker .dot{width:14px;height:14px;border-radius:4px;border:2px solid var(--ink);background:var(--tomato)}
-.big{font-size:clamp(42px,7.4vw,112px)}
-.mid{font-size:clamp(30px,4.4vw,58px)}
+.big{font-size:clamp(38px,5.6vw,80px)}
+.mid{font-size:clamp(28px,3.4vw,44px)}
 .lede{font-size:20px;max-width:50ch;color:var(--soft);margin-top:20px}
 .grid{display:grid;gap:22px}
 .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
@@ -180,3 +180,70 @@ section{padding:84px 0}
   *{animation:none!important;transition:none!important}
   .js .rv:not(.in){transform:none;opacity:1}
 }
+
+/* ---- Refined layer: calmer, more senior. Hairline borders, no hard shadows, no tilts. ---- */
+*,*::before,*::after{box-shadow:none!important}
+*{border-color:var(--hair)}
+[class]{border-width:1px}
+.card,.tile,.node,.tool,.stats,.rule,.rulec,.metric,.proof>div,.plat>div,.stamp,.job,.receipt,.concept,.flip .f,.flip .b,.bub,.funnel .tier,.adset .row>*,.fb div,.toggle,.stage2,.pill,.chip,.check,.btn.ghost,.cloud span,.path div,.tgroup h3,.hooks div,.tl .bar,.tbar,.stack .ico,.pipe .st .ic,.quote,.sticker,.mock,.ph .frame{border:1px solid var(--hair)!important}
+.stats div,.hooks div,.tl .bar div,.tbar button,.job .side,.concept .stage{border-color:var(--hair)!important}
+.sticker,.quote,.ph.tilt-l,.ph.tilt-r,.stamp,.cloud span,.rv.in,.tool:hover{transform:none!important}
+.badge,.marquee .track span::after{display:none}
+.nav{border-bottom:1px solid var(--hair);background:color-mix(in srgb,var(--bg) 92%,transparent)}
+.nav nav a{font-weight:500;border:0!important}
+.nav nav a[aria-current="page"]{background:transparent;color:var(--ink);box-shadow:inset 0 -2px 0 var(--tomato)!important;border-radius:0}
+.logo{font-stretch:105%;font-weight:700}
+.logo i{border-radius:6px;background:var(--ink);color:#fff}
+.logo em{background:transparent;border:1px solid var(--hair)}
+.sticker{background:transparent!important;border:0!important;padding:0;font-size:11px;color:var(--soft)}
+.sticker::before{background:var(--tomato)}
+.btn{border-radius:8px;padding:13px 20px;font-weight:600;border:1px solid var(--ink)!important}
+.btn:hover{transform:translateY(-1px);background:var(--tomato);border-color:var(--tomato)!important}
+.btn.ghost:hover{background:var(--card);color:var(--ink);border-color:var(--ink)!important}
+.quote{background:transparent!important;border:0!important;border-left:3px solid var(--tomato)!important;border-radius:0;padding:6px 0 6px 28px;font-weight:600;font-stretch:104%;font-size:clamp(22px,2.4vw,32px);line-height:1.25}
+.marquee{background:transparent;color:var(--ink);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.marquee .track{font-size:15px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.04em;gap:56px;padding:14px 0}
+.marquee .track span::before{content:"— ";color:var(--tomato)}
+.ph .frame{border:0!important;border-radius:18px;background:#111}
+.cliprail .ph{width:170px}
+.tile{min-height:220px;border-radius:14px;padding:26px;transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-3px)!important;border-color:var(--ink)!important}
+.tile h3{font-size:clamp(22px,2.2vw,28px);font-weight:700}
+.tile .arrow{font-size:22px;font-weight:600}
+.card,.node,.rule,.rulec,.metric,.job,.concept,.receipt{border-radius:12px}
+.stats{border-radius:12px}
+.stats strong{font-weight:600;font-size:clamp(34px,4vw,50px)}
+.kicker .dot{width:8px;height:8px;border-radius:50%;border:0}
+.hand{color:var(--soft)}
+.hand::before{content:"— "}
+.pill{border-radius:999px;font-weight:500;font-size:13px;background:rgba(255,255,255,.7)}
+.chip{border-radius:999px;font-size:10px}
+.chip.ok{background:#DDF3E4}.chip.wip{background:#FBF0CF}.chip.rev{background:var(--lilac)}.chip.stop{background:#FBE1DB;color:#9E2A14}
+.node::before,.node::after{width:8px;height:8px;margin-top:-4px;border:1px solid var(--hair)}
+.node::before{left:-5px}.node::after{right:-5px}
+.console{border-radius:12px}
+
+/* logos: always contained */
+.ico{width:22px!important;height:22px!important;padding:0!important;background:none!important;border:0!important}
+.ico svg,.ic svg{width:100%!important;height:100%!important;display:block}
+.stack{gap:10px}
+.stack .ico{width:20px!important;height:20px!important;opacity:.9}
+.tool{padding:9px 12px;font-size:14px;font-weight:500;border-radius:10px;gap:10px}
+.tool .ico{width:20px!important;height:20px!important}
+.tools{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.logowall{background:transparent;border-color:var(--hair)}
+.logowall .track{gap:40px;padding:14px 0}
+.logowall .track span{font-weight:500;font-size:14px;color:var(--soft)}
+.logowall .ico{width:20px!important;height:20px!important}
+.pipe .st{font-weight:500;font-size:13px}
+.pipe .st .ic{width:44px;height:44px;padding:11px;border-radius:12px;display:block}
+.pipe .st.on .ic{background:var(--card);border-color:var(--ink)!important;transform:translateY(-3px)}
+.pipe .ln{height:1px;background:repeating-linear-gradient(90deg,var(--soft) 0 4px,transparent 4px 9px);background-size:18px 1px}
+.foot h2{font-size:clamp(34px,4.6vw,64px);font-weight:700}
+.tile{background:var(--card)!important;color:var(--ink)!important}
+.tile .mono{color:var(--tomato)}
+.tile p{color:var(--soft)}
+.tile .arrow{color:var(--ink)}
+.flip .f{background:var(--card)!important}
+.flip .f .mono,.rulec .mono{color:var(--tomato)}
+.rulec{background:var(--card)!important}

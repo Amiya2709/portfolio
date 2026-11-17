@@ -87,12 +87,12 @@ css = '''
 @media (max-width:600px){.rules,.plat,.proof,.dash{grid-template-columns:1fr}.arc{flex-direction:column}.arc .ln{width:2px;height:24px;flex:0 0 24px}.adset .row{grid-template-columns:50px 1fr}.adset .row .bd,.adset .row .ct{grid-column:2}}
 '''
 
-BEATS = [("Hook", "0–3s", "Stop the scroll and promise a payoff", "“I was drinking two litres a day and still had headaches.”", "#FFC93C"),
-         ("Problem", "3–8s", "Make the viewer recognise themselves", "“Turns out I was forgetting to drink until 4pm.”", "#FF9BD2"),
-         ("Solution", "8–14s", "Introduce the product as the fix", "“This bottle has time markers, so I actually pace it.”", "#8EE3C8"),
-         ("Demo", "14–20s", "Show it working, don’t just say it", "Close-up of the markers, a refill, a real moment of use.", "#C9BFFF"),
-         ("Proof", "20–25s", "Make the claim believable", "“My whole office has one now.”", "#D6F54A"),
-         ("CTA", "25–30s", "Tell them exactly what to do next", "“Link’s below. Use code X for 15% off.”", "#FF4F2E")]
+BEATS = [("Hook", "0–3s", "Stop the scroll and promise a payoff", "“I was drinking two litres a day and still had headaches.”", "#F2E3B8"),
+         ("Problem", "3–8s", "Make the viewer recognise themselves", "“Turns out I was forgetting to drink until 4pm.”", "#F2D9E2"),
+         ("Solution", "8–14s", "Introduce the product as the fix", "“This bottle has time markers, so I actually pace it.”", "#D3E8DE"),
+         ("Demo", "14–20s", "Show it working, don’t just say it", "Close-up of the markers, a refill, a real moment of use.", "#DDD8F5"),
+         ("Proof", "20–25s", "Make the claim believable", "“My whole office has one now.”", "#E3EE9E"),
+         ("CTA", "25–30s", "Tell them exactly what to do next", "“Link’s below. Use code X for 15% off.”", "#F6CFC4")]
 SECS = [3, 5, 6, 6, 5, 5]
 
 HOOKS = [("Confession", "I almost didn’t buy this. Three times.", "Admits a relatable mistake or doubt."),
@@ -126,7 +126,7 @@ body = f'''
  <span class="k">Job</span><span class="v" data-bj>Stop the scroll and promise a payoff</span>
  <span class="k">Time</span><span class="v mono" style="font-size:13px" data-bt>0–3s</span></div>
 </div>
-<div class="mock" aria-hidden="true"><div class="scr" data-scr style="background:#FFC93C"><span class="chip tag" data-bc>Hook · 0–3s</span><div class="face"></div><div class="say" data-bx>“I was drinking two litres a day and still had headaches.”</div></div></div>
+<div class="mock" aria-hidden="true"><div class="scr" data-scr style="background:#F2E3B8"><span class="chip tag" data-bc>Hook · 0–3s</span><div class="face"></div><div class="say" data-bx>“I was drinking two litres a day and still had headaches.”</div></div></div>
 </div></div></section>
 
 <section style="padding-top:20px"><div class="wrap">{sec("02 · Hooks", "The first three seconds decide everything else.", "var(--tomato)")}
