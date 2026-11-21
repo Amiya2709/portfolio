@@ -93,7 +93,7 @@ concepts = f'''
  setInterval(function(){{ s=s<=0?660:s-7; var m=Math.floor(s/60), x=s%60; c.textContent=m+':'+(x<10?'0':'')+x; }},120);
 }})();
 </script>'''
-page('concepts.html', 'UAE concepts · Amirthashree Vijayakumar', concepts, css_c)
+
 
 # ---------- PLAYBOOK ----------
 css_p = '''

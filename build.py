@@ -4,7 +4,7 @@ E = html.escape
 OUT = '/home/claude/site/'
 
 FONTS = '<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>'
-NAV = [('index.html', 'Home'), ('work.html', 'Work'), ('ugc.html', 'UGC playbook'), ('playbook.html', 'How I run a team'), ('concepts.html', 'UAE ideas'), ('about.html', 'About')]
+NAV = [('index.html', 'Home'), ('work.html', 'Work'), ('ugc.html', 'UGC playbook'), ('playbook.html', 'How I run a team'), ('about.html', 'About')]
 
 def ico(k): return f'<span class="ico" title="{E(_iname(k))}">{_isvg(k)}</span>'
 def stack(keys): return '<div class="stack">' + ''.join(ico(k) for k in keys) + '</div>'
@@ -26,7 +26,7 @@ def page(fn, title, body, extra_css=''):
 <footer class="foot"><div class="wrap"><div class="row">
 <h2>Got a team<br>that needs this?</h2>
 <p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf">Download my resume (PDF)</a></p>
-</div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery. UAE concepts are unsolicited spec work and are not affiliated with or commissioned by those brands.</small></div></footer>
+</div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery.</small></div></footer>
 <script src="js/site.js?v={_v("js/site.js")}"></script></body></html>'''
     open(OUT + fn, 'w').write(doc)
 
@@ -147,7 +147,6 @@ home = f'''
   <a class="tile rv" href="ugc.html" style="background:var(--lime)"><span class="mono">Playbook</span><h3>How a UGC ad actually works</h3><p>Hooks, proof, CTAs, metrics</p><span class="arrow">→</span></a>
   <a class="tile rv" href="playbook.html" style="background:var(--ink);color:var(--bg)"><span class="mono">Team</span><h3>How I run a creative team</h3><p>10 stages, house rules, 11 lessons</p><span class="arrow">→</span></a>
  </div>
- <a class="tile rv" href="concepts.html" style="background:var(--pink);margin-top:22px;min-height:0;display:flex;justify-content:space-between;align-items:center;gap:20px"><div><span class="mono">Spec work</span><h3 style="margin-top:8px">Three ad ideas for UAE brands →</h3></div><div class="stack">{ico('instagram')}{ico('tiktok')}</div></a>
 </div></section>
 <section style="padding-top:0"><div class="wrap"><p class="quote rv">“Creative work rarely falls apart because people run out of ideas. It falls apart when nobody can see what’s going on.”</p></div></section>'''
 page('index.html', 'Amirthashree Vijayakumar · Creative Operations', home)
