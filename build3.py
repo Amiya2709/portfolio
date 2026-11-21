@@ -208,7 +208,7 @@ body = f'''
  <div class="stamp rv" style="--r:-1deg"><b>Claims as approved</b><p>Creators rephrase around a claim. The claim itself never changes.</p></div>
  <div class="stamp rv" style="--r:1deg;background:var(--lime)"><b>Experience, not promises</b><p>“It helped my eyes feel less dry” ✓ &nbsp; “It cures dry eye” ✗</p></div>
  <div class="stamp rv" style="--r:-.5deg"><b>Review before filming</b><p>Medical, legal and regulatory see the script first. Fixing a script beats a reshoot.</p></div>
- <div class="stamp rv" style="--r:.8deg"><b>Traceable</b><p>Every approved asset gets a reference code. Every script change is logged.</p><div style="margin-top:10px">{stack(["veeva","monday"])}</div></div>
+ <div class="stamp rv" style="--r:.8deg"><b>Traceable</b><p>Every approved asset gets a reference code. Every script change is logged.</p><div style="margin-top:10px">{stack(["monday","sheets"])}</div></div>
  <div class="stamp rv" style="--r:-1deg;background:var(--sun)"><b>Consent first</b><p>Everyone on screen signs before the ad runs.</p></div>
 </div></div></section>
 

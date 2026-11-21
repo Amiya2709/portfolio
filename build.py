@@ -34,7 +34,7 @@ def ph(clip, title, sub='', cls=''):
     return f'<figure class="ph {cls}"><div class="frame"><video muted loop playsinline preload="none" poster="v/{clip}.jpg" src="v/{clip}.mp4"></video><button class="snd" type="button" tabindex="-1">Sound off</button></div><figcaption><b>{E(title)}</b><span>{E(sub)}</span></figcaption></figure>'
 
 CASES = [
- dict(stack=['monday','veeva','frameio','drive','claude','instagram','tiktok'], fn='work-alcon.html', color='var(--cobalt)', ink='#fff', tag='Pharma · Eye care', name='Alcon',
+ dict(stack=['monday','frameio','drive','claude','instagram','tiktok'], fn='work-alcon.html', color='var(--cobalt)', ink='#fff', tag='Pharma · Eye care', name='Alcon',
   title='Compliant ads that sound like people', hook='Most compliant ads sound like a label read out loud. Ours sounded like friends talking about their eyes.',
   pills=['Pataday', 'Systane', 'Opti-Free', 'Clear Care', 'Precision1', 'MAP approvals', 'Veeva codes'],
   hero='pataday-onedrop',
@@ -97,9 +97,9 @@ def case_page(c, nxt):
 # ---------- HOME ----------
 rail = ['pataday-onedrop', 'capriottis-blt', 'tireagent-womans', 'bab-goldenegg', 'cox-sellmycar', 'systane-pocket', 'elcarwash-beforeafter', 'vf-everyday', 'botanic-spa', 'inshape-goals', 'autotrader-really', 'bab-adoption']
 rail_html = ''.join(ph(c, '', '') for c in rail)
-PIPE = [('docs', 'Brief'), ('instagram', 'Cast'), ('notion', 'Script'), ('veeva', 'Clear'), ('frameio', 'Edit'), ('monday', 'Track'), ('tiktok', 'Live')]
+PIPE = [('docs', 'Brief'), ('instagram', 'Cast'), ('notion', 'Script'), ('gmail', 'Clear'), ('frameio', 'Edit'), ('monday', 'Track'), ('tiktok', 'Live')]
 pipe = '<div class="pipe" data-pipe>' + '<i class="ln"></i>'.join(f'<div class="st"><span class="ic">{_isvg(k)}</span>{E(t)}</div>' for k, t in PIPE) + '</div>'
-WALL = ['monday', 'claude', 'n8n', 'mcp', 'notion', 'airtable', 'asana', 'slack', 'sheets', 'drive', 'ga4', 'tableau', 'sprout', 'brandwatch', 'sprinklr', 'instagram', 'tiktok', 'linkedin', 'youtube', 'meta', 'frameio', 'veeva', 'photoshop', 'excel', 'ppt']
+WALL = ['monday', 'claude', 'mcp', 'notion', 'airtable', 'asana', 'slack', 'sheets', 'drive', 'tableau', 'instagram', 'tiktok', 'linkedin', 'youtube', 'meta', 'frameio', 'excel', 'ppt']
 wall = ''.join(f'<span>{ico(k)}{E(_iname(k))}</span>' for k in WALL)
 home = f'''
 <section style="padding:70px 0 40px;position:relative"><div class="wrap" style="position:relative">
@@ -121,7 +121,7 @@ home = f'''
    <span class="mono">Ops + AI, not ops vs AI</span>
    <h3 style="font-size:clamp(26px,2.8vw,36px)">I connect Claude to the team’s tools so the busywork runs itself.</h3>
    <p style="color:var(--ink)">Trackers, status updates and SOP drafts come from the real boards, and a human checks every one before it’s shared.</p>
-   <div style="margin-top:18px">{stack(['claude','mcp','monday','drive','notion','slack','n8n'])}</div>
+   <div style="margin-top:18px">{stack(['claude','mcp','monday','drive','notion','slack'])}</div>
   </div>
  </div>
 </div></section>
