@@ -208,7 +208,7 @@ receipts = [("The banned list", "Licensed toys appeared in Build-A-Bear shoots."
 about = '''<section><div class="wrap"><span class="sticker" style="background:var(--mint)">About</span>
 <h1 class="big" style="margin-top:22px">Hi, I’m<br>Amirthashree.</h1>
 <p class="lede">I sit between the creative idea and the finished ad. I started as an intern at a UGC agency, was rarely the most senior person in the room, and learned that you don’t need a title to lead. You need to notice what’s slipping, and care enough to fix it.</p>
-<p style="margin-top:28px"><a class="btn" href="resume.pdf">Download resume (PDF)</a></p>
+<p style="margin-top:28px"><a class="btn" href="resume.pdf?v=3">Download resume (PDF)</a></p>
 <div class="path rv">
  <div><span class="mono">2018–2020</span><b>MA, Mass Communication</b><span>Women’s Christian College, India</span></div>
  <div><span class="mono">2022–2024</span><b>Content &amp; social</b><span>DIVO, then Indo Overseas Films, India</span></div>
@@ -237,7 +237,7 @@ JOBS = [("May 2025 – Oct 2026", "Creative Operations Manager", "Cipio.ai (Vide
    "Coordinated design, video and talent teams on assets and schedules at 95% execution accuracy.",
    "Built KPI dashboards that gave stakeholders real-time campaign visibility."],
   ['youtube','instagram','tableau','excel'])]
-about += """<section style="padding-top:10px"><div class="wrap"><div class="kicker"><span class="dot" style="background:var(--lime)"></span><span class="mono">Experience</span><span class="hand">3+ years · India → USA → UAE</span></div><div class="grid" style="gap:22px">"""
+about += """<section style="padding-top:10px"><div class="wrap"><div class="kicker"><span class="dot" style="background:var(--lime)"></span><span class="mono">Experience</span><span class="hand">selected roles · India → USA → UAE</span></div><div class="grid" style="gap:22px">"""
 for d, r, co, col, pts, st in JOBS:
     about += f'<article class="job rv"><div class="side" style="background:{col}"><span class="mono">{E(d)}</span><h3>{E(r)}</h3><p>{E(co)}</p><div style="margin-top:auto;padding-top:16px">{stack(st)}</div></div><ul>' + ''.join(f'<li>{E(p)}</li>' for p in pts) + '</ul></article>'
 about += """</div>

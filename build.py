@@ -25,7 +25,7 @@ def page(fn, title, body, extra_css=''):
 <main>{body}</main>
 <footer class="foot"><div class="wrap"><div class="row">
 <h2>Got a team<br>that needs this?</h2>
-<p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf">Download my resume (PDF)</a></p>
+<p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf?v=3">Download my resume (PDF)</a></p>
 </div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery.</small></div></footer>
 <script src="js/site.js?v={_v("js/site.js")}"></script></body></html>'''
     open(OUT + fn, 'w').write(doc)
