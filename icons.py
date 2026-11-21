@@ -19,15 +19,16 @@ T={
  'claude':('Claude','logos:claude-icon'),'mcp':('MCP connectors','logos:model-context-protocol-icon'),
  'fireflies':('Fireflies.ai',('mono','Ff','#7B3FF2')),
  'ga4':('Google Analytics 4','logos:google-analytics'),'tableau':('Tableau','logos:tableau-icon'),
- 'sprout':('Sprout Social',('mono','Sp','#2F9E44')),'sprinklr':('Sprinklr',('mono','Sk','#0B6BCB')),'brandwatch':('Brandwatch',('mono','Bw','#1B1340')),
+ 'sprout':('Sprout Social',('fav','sproutsocial.com')),'sprinklr':('Sprinklr',('fav','sprinklr.com')),'brandwatch':('Brandwatch',('fav','brandwatch.com')),
  'instagram':('Instagram','logos:instagram-icon'),'tiktok':('TikTok','logos:tiktok-icon'),'linkedin':('LinkedIn','logos:linkedin-icon'),
  'youtube':('YouTube','logos:youtube-icon'),'facebook':('Facebook','logos:facebook'),'meta':('Meta Ads','logos:meta-icon'),
- 'photoshop':('Photoshop','logos:adobe-photoshop'),'frameio':('Frame.io',('mono','F.io','#5B53FF')),'veeva':('Veeva',('mono','Vv','#F28C00')),
+ 'photoshop':('Photoshop','logos:adobe-photoshop'),'frameio':('Frame.io',('fav','frame.io')),'veeva':('Veeva',('mono','Vv','#F28C00')),
 }
 def svg(k):
     n,r=T[k]
     if isinstance(r,tuple):
         if r[0]=='mono': return _mono(r[1],r[2])
+        if r[0]=='fav': return f'<img src="https://www.google.com/s2/favicons?domain={r[1]}&amp;sz=64" width="20" height="20" alt="" loading="lazy" decoding="async">'
         return _svg(r[0],r[1])
     return _svg(r)
 def name(k): return T[k][0]

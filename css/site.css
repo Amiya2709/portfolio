@@ -247,3 +247,4 @@ section{padding:84px 0}
 .flip .f{background:var(--card)!important}
 .flip .f .mono,.rulec .mono{color:var(--tomato)}
 .rulec{background:var(--card)!important}
+.ico img{width:100%!important;height:100%!important;display:block;border-radius:4px;object-fit:contain}
