@@ -25,7 +25,7 @@ def page(fn, title, body, extra_css=''):
 <main>{body}</main>
 <footer class="foot"><div class="wrap"><div class="row">
 <h2>Got a team<br>that needs this?</h2>
-<p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf?v=3">Download my resume (PDF)</a></p>
+<p>+971 50 807 0510<br>amirthashreevijayakumar@gmail.com<br><a href="https://www.linkedin.com/in/amirthashree-vijayakumar">linkedin.com/in/amirthashree-vijayakumar</a><br><a href="resume.pdf?v=4">Download my resume (PDF)</a></p>
 </div><small>Ads shown were produced by the VideoForce (Cipio.ai) team for its clients, 2025–2026, where I led creative operations: casting, briefs, scripts, compliance, editor direction and delivery.</small></div></footer>
 <script src="js/site.js?v={_v("js/site.js")}"></script></body></html>'''
     open(OUT + fn, 'w').write(doc)
@@ -36,7 +36,7 @@ def ph(clip, title, sub='', cls=''):
 CASES = [
  dict(stack=['monday','frameio','drive','claude','instagram','tiktok'], fn='work-alcon.html', color='var(--cobalt)', ink='#fff', tag='Pharma · Eye care', name='Alcon',
   title='Compliant ads that sound like people', hook='Most compliant ads sound like a label read out loud. Ours sounded like friends talking about their eyes.',
-  pills=['Pataday', 'Systane', 'Opti-Free', 'Clear Care', 'Precision1', 'MAP approvals', 'Veeva codes'],
+  pills=['Pataday', 'Systane', 'Opti-Free', 'Clear Care', 'Precision1', 'MAP approvals', 'Approval codes'],
   hero='pataday-onedrop',
   beats=[('The brief', 'A monthly flow of UGC ads for four eye-care lines. Every claim cleared by medical, legal and regulatory. Every creator with signed consent.'),
          ('The idea', 'Two voices in one ad. Everyday users talk about the moment of relief; eye doctors give the expert reason why.'),
@@ -99,7 +99,7 @@ rail = ['pataday-onedrop', 'capriottis-blt', 'tireagent-womans', 'bab-goldenegg'
 rail_html = ''.join(ph(c, '', '') for c in rail)
 PIPE = [('docs', 'Brief'), ('instagram', 'Cast'), ('notion', 'Script'), ('gmail', 'Clear'), ('frameio', 'Edit'), ('monday', 'Track'), ('tiktok', 'Live')]
 pipe = '<div class="pipe" data-pipe>' + '<i class="ln"></i>'.join(f'<div class="st"><span class="ic">{_isvg(k)}</span>{E(t)}</div>' for k, t in PIPE) + '</div>'
-WALL = ['monday', 'claude', 'mcp', 'notion', 'airtable', 'asana', 'slack', 'sheets', 'drive', 'tableau', 'instagram', 'tiktok', 'linkedin', 'youtube', 'meta', 'frameio', 'excel', 'ppt']
+WALL = ['monday', 'claude', 'n8n', 'mcp', 'notion', 'airtable', 'asana', 'slack', 'sheets', 'drive', 'ga4', 'tableau', 'sprout', 'brandwatch', 'sprinklr', 'instagram', 'tiktok', 'linkedin', 'youtube', 'meta', 'frameio', 'photoshop', 'excel', 'ppt']
 wall = ''.join(f'<span>{ico(k)}{E(_iname(k))}</span>' for k in WALL)
 home = f'''
 <section style="padding:70px 0 40px;position:relative"><div class="wrap" style="position:relative">
@@ -121,7 +121,7 @@ home = f'''
    <span class="mono">Ops + AI, not ops vs AI</span>
    <h3 style="font-size:clamp(26px,2.8vw,36px)">I connect Claude to the team’s tools so the busywork runs itself.</h3>
    <p style="color:var(--ink)">Trackers, status updates and SOP drafts come from the real boards, and a human checks every one before it’s shared.</p>
-   <div style="margin-top:18px">{stack(['claude','mcp','monday','drive','notion','slack'])}</div>
+   <div style="margin-top:18px">{stack(['claude','mcp','monday','drive','notion','slack','n8n'])}</div>
   </div>
  </div>
 </div></section>

@@ -146,7 +146,7 @@ lessons = [("Lock legal before sourcing", "Tell creators up front if a script is
  ("Checklist before the client", "Claims, disclosures, legal lines, repeated footage, spelling, pauses.", "Typos clients kept catching"),
  ("Turn gaps into defaults", "When a brief is missing details, propose a default for each instead of sending questions.", "A Walmart brief with seven gaps"),
  ("Audit against the contract", "Compare delivered ads with what was promised every month.", "A forgotten Opti-Free campaign")]
-STAGE_TOOLS = [['monday','sheets'],['instagram','tiktok'],['docs','notion'],['docs','claude'],['gmail','docs'],['frameio'],['frameio'],['frameio','slack'],['monday','sheets'],['notion','claude']]
+STAGE_TOOLS = [['monday','sheets'],['instagram','tiktok'],['docs','notion'],['docs','claude'],['gmail','docs'],['frameio'],['frameio','photoshop'],['frameio','slack'],['monday','ga4'],['notion','claude']]
 RULES = [("The brief carries the rules", "Every brief template has the hook rules, a don’t-say list, filming specs and example scripts. Creators get the playbook without having to read it.", ['docs','notion']),
  ("Three hooks or it isn’t a set", "Scripts come back as 1A, 1B, 1C on a fixed body and CTA. Every set is a test.", ['docs']),
  ("Nothing reaches the client unchecked", "Every cut passes the pre-flight checklist below before it leaves the team.", ['frameio']),
@@ -208,7 +208,7 @@ receipts = [("The banned list", "Licensed toys appeared in Build-A-Bear shoots."
 about = '''<section><div class="wrap"><span class="sticker" style="background:var(--mint)">About</span>
 <h1 class="big" style="margin-top:22px">Hi, I’m<br>Amirthashree.</h1>
 <p class="lede">I sit between the creative idea and the finished ad. I started as an intern at a UGC agency, was rarely the most senior person in the room, and learned that you don’t need a title to lead. You need to notice what’s slipping, and care enough to fix it.</p>
-<p style="margin-top:28px"><a class="btn" href="resume.pdf?v=3">Download resume (PDF)</a></p>
+<p style="margin-top:28px"><a class="btn" href="resume.pdf?v=4">Download resume (PDF)</a></p>
 <div class="path rv">
  <div><span class="mono">2018–2020</span><b>MA, Mass Communication</b><span>Women’s Christian College, India</span></div>
  <div><span class="mono">2022–2024</span><b>Content &amp; social</b><span>DIVO, then Indo Overseas Films, India</span></div>
@@ -223,15 +223,15 @@ JOBS = [("May 2025 – Oct 2026", "Creative Operations Manager", "Cipio.ai (Vide
   ["Promoted from intern to full-time within a year; the creative and ops focal point for 40+ campaigns across 11+ brands, including Alcon, Cox Automotive (Autotrader), Tire Agent and Vanity Fair.",
    "Led a 3-person in-house creative team and coordinated agencies, editors, creators and production partners from brief to delivery. Every campaign on schedule.",
    "Designed 20 linked Monday.com boards, including a master tracker of delivered vs committed work for every client, every month.",
-   "Ran pharma approval workflows (Veeva codes, MAP approval, creator consent) with registries tying every ad to its status.",
+   "Ran pharma approval workflows (approval codes, MAP approval, creator consent) with registries tying every ad to its status.",
    "Turned brand standards into editing guidelines, briefs and templates; wrote handover SOPs for 8 accounts.",
-   "Refined creative from performance insights: 15% engagement lift, 28% better retention on TikTok and Instagram, 18% higher CTR on UGC concepts."],
-  ['monday','claude','frameio','tiktok','instagram']),
+   "Used GA4 insights to refine creative: 15% engagement lift, 28% better retention on TikTok and Instagram, 18% higher CTR on UGC concepts."],
+  ['monday','claude','ga4','tiktok','instagram']),
  ("Mar 2023 – Feb 2024", "Digital & Social Media Manager", "Indo Overseas Films · India", "var(--sun)",
   ["Owned the content and campaign calendar across 8+ platforms. 0% launch delays.",
    "Developed key messaging for 12 content categories, lifting brand recognition 20%.",
    "Read audience behaviour and platform trends: 30% uplift in audience relevance, 22% engagement growth, 35% higher view-completion from per-platform edits."],
-  ['instagram','youtube','facebook','linkedin']),
+  ['instagram','youtube','facebook','linkedin','sprout']),
  ("Mar 2022 – Feb 2023", "Assistant Social Media Content Producer", "DIVO · India", "var(--pink)",
   ["Partnered with editors, executive producers, talent and brand partners on briefs, scripts and ad integrations for 20+ campaigns. 28% higher engagement.",
    "Coordinated design, video and talent teams on assets and schedules at 95% execution accuracy.",
@@ -245,11 +245,11 @@ about += """</div>
  <div class="card rv"><span class="mono">Hult · Expedia Group Business Challenge</span><h3>Predictive-analytics content strategy for a global travel brand</h3><p>Personalised short-form video across TikTok, Instagram and LinkedIn: 22% more engagement, 30% less planning time.</p><div style="margin-top:14px">""" + stack(['tiktok','instagram','linkedin','tableau']) + """</div></div>
  <div class="card rv"><span class="mono">Education</span><h3 style="font-size:20px;line-height:1.25">MS Marketing &amp; Analytics, Hult International Business School, San Francisco · 2024–25</h3><p style="margin-top:8px">MBA Foundation, University Canada West · 2021<br>MA Mass Communication, Women’s Christian College · 2018–20</p></div>
 </div></div></section>"""
-GROUPS = [("Ops &amp; workflow", "var(--lime)", ['monday','airtable','asana','notion','slack','drive','gmail']),
- ("AI &amp; agents", "var(--lilac)", ['claude','mcp']),
- ("Data &amp; reporting", "var(--sun)", ['sheets','excel','tableau']),
+GROUPS = [("Ops &amp; workflow", "var(--lime)", ['monday','airtable','asana','notion','slack','sheets','drive','gmail','excel']),
+ ("AI &amp; agents", "var(--lilac)", ['claude','mcp','n8n']),
+ ("Analytics &amp; listening", "var(--sun)", ['ga4','tableau','sprout','sprinklr','brandwatch']),
  ("Platforms", "var(--pink)", ['instagram','tiktok','linkedin','youtube','facebook','meta']),
- ("Creative &amp; review", "var(--mint)", ['frameio','ppt','word'])]
+ ("Creative &amp; review", "var(--mint)", ['photoshop','frameio','ppt','word'])]
 about += """<section style="padding-top:10px"><div class="wrap"><div class="kicker"><span class="dot" style="background:var(--cobalt)"></span><span class="mono">Toolbox</span><span class="hand">apps, agents and software I’m comfy in</span></div>"""
 for g, col, ks in GROUPS:
     about += f'<div class="tgroup rv"><h3 style="background:{col}">{g}</h3><div class="tools">' + ''.join(tool(k) for k in ks) + '</div></div>'

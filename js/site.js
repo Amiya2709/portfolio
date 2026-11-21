@@ -56,7 +56,7 @@
     var L=[['> ','pull delivered vs committed from monday.com, all clients'],['ok','every client checked · late items listed with reasons'],
            ['> ','how many veeva codes are left for systane?'],['ok','running low · new batch requested before it blocks a shoot'],
            ['> ','draft the tire agent handover SOP from drive + slack'],['ok','draft ready · checking it against the source first'],
-           ['> ','summarise this week’s creator feedback from slack'],['ok','3 themes found · brief update drafted for review']];
+           ['> ','n8n: new footage in drive → ping the editor on slack'],['ok','flow on · editor gets a Slack ping']];
     if(reduce){ box.innerHTML=L.map(function(l){return '<p>'+(l[0]==='ok'?'<span class="ok">✓ </span>':'<span class="tag">› </span>')+l[1]+'</p>';}).join(''); return; }
     var li=0, ci=0, cur;
     function next(){
